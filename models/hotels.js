@@ -7,6 +7,8 @@ var roomSchema = new Schema({
   price:{type:Number},
 });
 
+var subRoom = mongoose.model('Hotel.rooms', roomSchema);
+
 var commentSchema = new Schema({
   comment:{type:String, min:1, max:5},
   rating:{type:String},

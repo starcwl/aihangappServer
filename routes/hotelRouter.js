@@ -1,5 +1,4 @@
 var express = require('express');
-var mongoose = require('mongoose');
 var hotelRouter = express.Router();
 
 var Hotels = require('../models/hotels');
@@ -35,10 +34,8 @@ hotelRouter.get('/random', function(req, res) {
 });
 
 hotelRouter.get('/:id', function(req, res) {
-  console.log('id is', req.params.id)
   Hotels.findById(req.params.id)
     .exec(function(err, hotel) {
-      console.log('hotel is', hotel);
       if (err) throw err;
       res.send(hotel);
     }).catch(function(err) {
